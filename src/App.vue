@@ -1,14 +1,17 @@
 <template>
+  <the-header></the-header>
   <stored-resources :resources="storedResources"></stored-resources>
 </template>
 
 <script>
 import { v4 as uuidv4 } from 'uuid';
+import TheHeader from "@/components/layout/TheHeader";
 import StoredResources from "@/components/learning-resources/StoredResources";
 
 export default {
   name: "App",
   components: {
+    TheHeader,
     StoredResources
   },
   data() {
@@ -51,18 +54,6 @@ html {
   text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
-}
-
-@-ms-viewport {
-  width: device-width;
-}
-
-@-o-viewport {
-  width: device-width;
-}
-
-@viewport {
-  width: device-width;
 }
 
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
