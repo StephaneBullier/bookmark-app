@@ -1,22 +1,15 @@
 <template>
-  <ul>
-    <resource-item
-        v-for="resource in storedResources"
-        :title="resource.title"
-        :description="resource.description"
-        :link="resource.link"
-        :key="resource.id"
-    ></resource-item>
-  </ul>
+  <stored-resources :resources="storedResources"></stored-resources>
 </template>
 
 <script>
 import { v4 as uuidv4 } from 'uuid';
-import ResourceItem from "@/components/learning-resources/ResourceItem";
+import StoredResources from "@/components/learning-resources/StoredResources";
+
 export default {
   name: "App",
   components: {
-    ResourceItem
+    StoredResources
   },
   data() {
     return {
@@ -40,5 +33,50 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+@-o-viewport {
+  width: device-width;
+}
+
+@viewport {
+  width: device-width;
+}
+
+article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
 </style>
