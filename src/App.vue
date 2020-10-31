@@ -1,35 +1,22 @@
 <template>
   <the-header title="RememberMe"></the-header>
-  <stored-resources :resources="storedResources"></stored-resources>
+  <the-resources></the-resources>
 </template>
 
 <script>
-import { v4 as uuidv4 } from 'uuid';
-import TheHeader from "@/components/layout/TheHeader";
-import StoredResources from "@/components/learning-resources/StoredResources";
+
+import TheHeader from '@/components/layout/TheHeader';
+import TheResources from '@/components/learning-resources/TheResources';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     TheHeader,
-    StoredResources
+    TheResources
   },
   data() {
     return {
-      storedResources: [
-        {
-          id: uuidv4(),
-          title: 'Official Guide',
-          description: 'The official Vue.js documentation',
-          link: 'https://v3.vuejs.org/'
-        },
-        {
-          id: uuidv4(),
-          title: 'Google',
-          description: 'Learn to google',
-          link: 'https://www.google.com/'
-        }
-      ]
+
     }
   }
 }
