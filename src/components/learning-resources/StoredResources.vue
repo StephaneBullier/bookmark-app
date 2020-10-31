@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import ResourceItem from "@/components/learning-resources/ResourceItem";
+import ResourceItem from '@/components/learning-resources/ResourceItem';
 export default {
-  name: "StoredResources",
+  name: 'StoredResources',
   components: {
     ResourceItem
   },
-  props: ['resources']
+  inject: ['resources']
 }
 </script>
 
