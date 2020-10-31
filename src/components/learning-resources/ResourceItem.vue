@@ -1,6 +1,6 @@
 <template>
   <li>
-    <div>
+    <base-card>
       <header>
         <h2>{{title}}</h2>
         <button>Delete</button>
@@ -9,13 +9,15 @@
       <nav>
         <a :href="link">View resource</a>
       </nav>
-    </div>
+    </base-card>
   </li>
 </template>
 
 <script>
+
 export default {
   name: "ResourceItem",
+  components: {},
   props: ['title', 'description', 'link']
 }
 </script>
