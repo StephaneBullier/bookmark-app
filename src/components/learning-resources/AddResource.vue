@@ -1,19 +1,17 @@
 <template>
-  <teleport to="body">
-    <base-dialog
-        v-if="inputIsInvalid"
-        title="Invalid Input"
-        @close="confirmError"
-    >
-      <template #default>
-        <p>Au moins une valeur renseignée est invalide.</p>
-        <p>Vérifiez tous les champs.</p>
-      </template>
-      <template #actions>
-        <base-button @click="confirmError">OK</base-button>
-      </template>
-    </base-dialog>
-  </teleport>
+  <base-dialog
+      v-if="inputIsInvalid"
+      title="Invalid Input"
+      @close="confirmError"
+  >
+    <template #default>
+      <p>Au moins une valeur renseignée est invalide.</p>
+      <p>Vérifiez tous les champs.</p>
+    </template>
+    <template #actions>
+      <base-button @click="confirmError">OK</base-button>
+    </template>
+  </base-dialog>
   <base-card>
     <form @submit.prevent="saveResource">
       <div class="form-control">
@@ -37,6 +35,7 @@
 
 <script>
 import BaseButton from '@/components/UI/BaseButton';
+
 export default {
   components: {BaseButton},
   inject: ['addResource'],
