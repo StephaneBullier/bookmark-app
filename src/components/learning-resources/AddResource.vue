@@ -1,4 +1,19 @@
 <template>
+  <teleport to="body">
+    <base-dialog
+        v-if="inputIsInvalid"
+        title="Invalid Input"
+        @close="confirmError"
+    >
+      <template #default>
+        <p>Au moins une valeur renseignée est invalide.</p>
+        <p>Vérifiez tous les champs.</p>
+      </template>
+      <template #actions>
+        <base-button @click="confirmError">OK</base-button>
+      </template>
+    </base-dialog>
+  </teleport>
   <base-card>
     <form @submit.prevent="saveResource">
       <div class="form-control">
@@ -21,15 +36,31 @@
 </template>
 
 <script>
+import BaseButton from '@/components/UI/BaseButton';
 export default {
+  components: {BaseButton},
   inject: ['addResource'],
+  data() {
+    return {
+      inputIsInvalid: false
+    }
+  },
   methods: {
     saveResource() {
       const enteredTitle = this.$refs.titleInput.value
       const enteredDescription = this.$refs.descriptionInput.value
       const enteredLink = this.$refs.linkInput.value
 
+      if (enteredTitle.trim() === '' || enteredDescription.trim() === '' || enteredLink.trim() === '') {
+        this.inputIsInvalid = true
+
+        return;
+      }
+
       this.addResource(enteredTitle, enteredDescription, enteredLink)
+    },
+    confirmError() {
+      this.inputIsInvalid = false
     }
   }
 }
